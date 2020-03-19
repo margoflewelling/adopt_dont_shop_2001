@@ -16,5 +16,8 @@ RSpec.describe "destroy a shelter", type: :feature do
 
     visit "/shelters/#{shelter_2.id}"
     expect { click_on "Delete Shelter" }.to change(Shelter, :count).by(-1)
+
+    visit '/shelters'
+    expect(page).to_not have_content ("#{shelter_2.name}")
   end
 end
