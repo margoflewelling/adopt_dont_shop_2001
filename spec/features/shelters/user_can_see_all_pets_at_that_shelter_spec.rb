@@ -14,7 +14,8 @@ RSpec.describe 'As a visitor', type: :feature do
                     sex: "Male",
                     shelter: shelter_1,
                     description: "Friendly, shnauzer poodle mix",
-                    adoption_status: "Available")
+                    adoption_status: "Available",
+                    image: 'https://www.sheknows.com/wp-content/uploads/2018/08/fajkx3pdvvt9ax6btssg.jpeg?w=695&h=391&crop=1')
   shelter_2 = Shelter.create(name: "Dumb Friends League",
                             address: "76 Adopt Alley",
                             city: "Denver",
@@ -25,7 +26,8 @@ RSpec.describe 'As a visitor', type: :feature do
                     sex: "Female",
                     shelter: shelter_2,
                     description: "Lovable Golden Doodle",
-                    adoption_status: "Adoption Pending")
+                    adoption_status: "Adoption Pending",
+                    image: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dogs-that-dont-shed-1560974761.jpg')
 
     visit "/shelters/#{shelter_1.id}/pets"
     expect(page).to have_content(pet_1.name)
