@@ -15,6 +15,8 @@ RSpec.describe "shelter show page", type: :feature do
     expect(page).to have_content(shelter_1.state)
     expect(page).to have_content(shelter_1.zip)
 
+    expect(page).to have_link(href: "/shelters/#{shelter_1.id}/pets")
+
 
   end
 end

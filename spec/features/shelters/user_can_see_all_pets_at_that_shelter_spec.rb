@@ -14,7 +14,6 @@ RSpec.describe 'As a visitor', type: :feature do
                     sex: "Male",
                     shelter: shelter_1,
                     description: "Friendly, shnauzer poodle mix",
-                    adoption_status: "Available",
                     image: 'https://www.sheknows.com/wp-content/uploads/2018/08/fajkx3pdvvt9ax6btssg.jpeg?w=695&h=391&crop=1')
   shelter_2 = Shelter.create(name: "Dumb Friends League",
                             address: "76 Adopt Alley",
@@ -26,7 +25,6 @@ RSpec.describe 'As a visitor', type: :feature do
                     sex: "Female",
                     shelter: shelter_2,
                     description: "Lovable Golden Doodle",
-                    adoption_status: "Adoption Pending",
                     image: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dogs-that-dont-shed-1560974761.jpg')
 
     visit "/shelters/#{shelter_1.id}/pets"
@@ -35,9 +33,9 @@ RSpec.describe 'As a visitor', type: :feature do
     expect(page).to have_content(pet_1.sex)
     expect(page).to have_css("img[src*='#{pet_1.image}']")
 
-    save_and_open_page
-
 
     expect(page).to_not have_content(pet_2.name)
+
+    expect(page).to have_link(href: "/pets/#{pet_1.id}")
   end
 end

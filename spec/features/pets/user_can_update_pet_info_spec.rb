@@ -13,11 +13,11 @@ RSpec.describe "as a visitor", type: :feature do
                       sex: "Male",
                       shelter: shelter_1,
                       description: "Friendly, shnauzer poodle mix",
-                      adoption_status: "Available",
                       image: 'https://www.sheknows.com/wp-content/uploads/2018/08/fajkx3pdvvt9ax6btssg.jpeg?w=695&h=391&crop=1')
 
     visit "/pets/#{pet_1.id}"
     click_on "Update Pet"
+    expect(current_path).to eq("/pets/#{pet_1.id}/edit")
 
     fill_in :name, with: "Odell"
     click_on "Update Pet"

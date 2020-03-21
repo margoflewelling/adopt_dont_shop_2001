@@ -19,8 +19,8 @@ RSpec.describe "shelter edit page", type: :feature do
 
     fill_in :name, with: "Routt County Humane"
     click_on "Submit"
+    expect(current_path).to eq("/shelters/#{shelter_1.id}")
 
-    visit "/shelters/#{shelter_1.id}"
     expect(page).to have_content("Routt County Humane")
 
   end

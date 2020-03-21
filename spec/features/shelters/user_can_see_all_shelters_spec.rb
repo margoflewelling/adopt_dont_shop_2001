@@ -16,6 +16,9 @@ RSpec.describe "shelters index page", type: :feature do
 
     visit "/shelters"
 
+    expect(page).to have_link(href: "/shelters/#{shelter_1.id}")
+    expect(page).to have_link(href: "/shelters/#{shelter_1.id}/edit")
+
     expect(page).to have_content(shelter_1.name)
     expect(page).to have_content(shelter_2.name)
   end
