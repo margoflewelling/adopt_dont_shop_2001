@@ -1,11 +1,19 @@
-<form action="/pets/<%= @pet.id %>" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <input type="hidden" name="_method" value="PATCH" />
-  <p>Edit</p>
-  <input type='text' name='name' value="<%= @pet.name %>"/><br/>
-  <input type='text' name='image' value="<%= @pet.image %>"/><br/>
-  <input type='text' name='description' value="<%= @pet.description %>"/><br/>
-  <input type='text' name='age value'<%= @pet.age %>"/><br/>
-  <input type='text' name='sex' value="<%= @pet.sex %>"/><br/>
-  <input type='submit' value="Update Pet"/>
-</form>
+<%= form_tag "/pets/#{@pet.id}", method: :patch do %>
+  <%= label_tag :name %>
+  <%= text_field_tag :name, @pet.name %>
+
+  <%= label_tag :image %>
+  <%= text_field_tag :image, @pet.image %>
+
+  <%= label_tag :description %>
+  <%= text_field_tag :description, @pet.description %>
+  <%= label_tag :age %>
+  <%= text_field_tag :age, @pet.age %>
+
+  <label for='sex'>Gender:</label>
+  <select id = 'sex' name='sex'>
+    <option value = "Male">Male</option>
+    <option value = "Female">Female</option>
+  </select>
+  <%= submit_tag "Update Pet" %>
+<% end %>

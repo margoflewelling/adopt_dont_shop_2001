@@ -7,8 +7,11 @@
   <%= text_field_tag :description %>
   <%= label_tag :age %>
   <%= text_field_tag :age %>
-  <%= label_tag :sex %>
-  <%= text_field_tag :sex %>
+  <label for='sex'>Gender:</label>
+  <select id = 'sex' name='sex'>
+    <option value = "Male">Male</option>
+    <option value = "Female">Female</option>
+  </select>
   <%= label_tag :image %>
   <%= text_field_tag :image %>
 
