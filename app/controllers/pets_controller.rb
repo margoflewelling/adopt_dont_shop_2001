@@ -10,6 +10,9 @@ class PetsController < ApplicationController
   def create
     shelter = Shelter.find(params[:id])
     pet = shelter.pets.create!(pet_params)
+    pet[:adoption_status] = "adoptable"
+    pet.save
+    require "pry"; binding.pry
     redirect_to "/shelters/#{shelter.id}/pets"
   end
 
