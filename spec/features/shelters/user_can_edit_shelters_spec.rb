@@ -10,14 +10,14 @@ RSpec.describe "shelter edit page", type: :feature do
 
 
     visit "/shelters/#{shelter_1.id}/edit"
-    expect(page).to have_field 'shelter[name]'
-    expect(page).to have_field 'shelter[address]'
-    expect(page).to have_field 'shelter[city]'
-    expect(page).to have_field 'shelter[state]'
-    expect(page).to have_field 'shelter[zip]'
+    expect(page).to have_field 'name'
+    expect(page).to have_field 'address'
+    expect(page).to have_field 'city'
+    expect(page).to have_field 'state'
+    expect(page).to have_field 'zip'
 
 
-    fill_in "shelter[name]", with: "Routt County Humane"
+    fill_in :name, with: "Routt County Humane"
     click_on "Submit"
 
     visit "/shelters/#{shelter_1.id}"

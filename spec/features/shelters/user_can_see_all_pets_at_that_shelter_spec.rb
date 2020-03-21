@@ -35,6 +35,8 @@ RSpec.describe 'As a visitor', type: :feature do
     expect(page).to have_content(pet_1.sex)
     expect(page).to have_css("img[src*='#{pet_1.image}']")
 
+    save_and_open_page
+
 
     expect(page).to_not have_content(pet_2.name)
   end

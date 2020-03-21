@@ -19,7 +19,7 @@ RSpec.describe "as a visitor", type: :feature do
     visit "/pets/#{pet_1.id}"
     click_on "Update Pet"
 
-    fill_in "pet[name]", with: "Odell"
+    fill_in :name, with: "Odell"
     click_on "Update Pet"
     expect(page).to have_content("Odell")
     expect(page).to_not have_content("Odie")
