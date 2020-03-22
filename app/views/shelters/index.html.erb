@@ -3,10 +3,7 @@
 <% @shelters.each do |shelter| %>
   <h3><a href="/shelters/<%= shelter.id %>"><%= shelter.name %></a></h3>
   <div class = "edit_delete"> <%= link_to "Edit Shelter Info", "/shelters/#{shelter.id}/edit" %>
-    <br>
-    <%= link_to "Delete Shelter", "/shelters/#{shelter.id}", method: :delete%>
+    <br> <%= link_to "Delete Shelter", "/shelters/#{shelter.id}", method: :delete%>
   </div>
 <% end %>
-
-
 <h4> <div class = 'new'> <br><a href="/shelters/new">New Shelter</a></div></h4>
