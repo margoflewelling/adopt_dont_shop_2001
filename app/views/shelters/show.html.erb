@@ -4,7 +4,8 @@
 <h3>
 <%= link_to "Check out our Animals!", "/shelters/#{@shelter.id}/pets" %>
 </h3>
-
-<a href="/shelters/<%= @shelter.id %>/edit">Edit</a>
-
+<br> <br>
+<div class = edit_delete>
+<a href="/shelters/<%= @shelter.id %>/edit">Edit</a> <br>
 <%= link_to "Delete Shelter", "/shelters/#{@shelter.id}", method: :delete %>
+</div>
